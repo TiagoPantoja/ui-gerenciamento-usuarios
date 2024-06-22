@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Departamentos</title>
+</head>
+<body>
+<div class="container">
+  <h2>{{ department.id ? 'Edit Department' : 'Add Department' }}</h2>
+  <form (ngSubmit)="saveDepartment()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="department.name" name="name" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">{{ department.id ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button color="warn" routerLink="/departments">Cancel</button>
+  </form>
+</div>
+</body>
+</html>

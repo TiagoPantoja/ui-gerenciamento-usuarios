@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Usuário</title>
+</head>
+<body>
+<div class="container">
+  <h2>{{ user.id ? 'Edit User' : 'Add User' }}</h2>
+  <form (ngSubmit)="saveUser()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="user.name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="user.email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Department</mat-label>
+      <mat-select [(ngModel)]="user.departamentoId" name="department" required>
+        <mat-option *ngFor="let department of departments" [value]="department.id">
+          {{ department.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">{{ user.id ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button color="warn" routerLink="/users">Cancel</button>
+  </form>
+</div>
+</body>
+</html>

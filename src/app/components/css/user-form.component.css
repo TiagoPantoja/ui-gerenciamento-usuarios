@@ -1,0 +1,8 @@
+.container {
+  margin: 20px;
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 10px;
+}
